@@ -14,6 +14,7 @@ public class UserDto {
     public UserDto(UserPayroll userPayroll){
         this.id= userPayroll.getId();
         this.email= userPayroll.getEmail();
+        this.password = userPayroll.getPassword();
     }
 
 
