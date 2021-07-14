@@ -26,6 +26,7 @@ public class SalaryRuleResourceTest {
     private RestService restService;
     private SalaryRule salaryRule;
     Employee employee = new Employee();
+    Date date = new Date();
     @Before
     public void before() {
         salaryRule = new SalaryRule();
@@ -33,8 +34,7 @@ public class SalaryRuleResourceTest {
         this.salaryRule.setDecimoTercero(true);
         this.salaryRule.setDecimoCuarto(false);
         this.salaryRule.setFondosDeReserva(true);
-        this.salaryRule.setPaymentDate("2021-08-21");
-        this.salaryRule.setEmployee(employee);
+        this.salaryRule.setPaymentDate(date);
     }
 
 

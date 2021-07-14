@@ -24,8 +24,8 @@ public class SalaryRuleController {
         return this.salaryRuleRepository.findAll();
     }
 
-    public Optional<SalaryRule> findSalaryRuleById(int id){
-        return this.salaryRuleRepository.findSalaryRuleById(id);
+    public Optional<SalaryRule> findSalaryRuleById(String id){
+        return this.salaryRuleRepository.findSalaryRuleByEmployee_Ci(id);
     }
 
 
@@ -34,7 +34,7 @@ public class SalaryRuleController {
     }
 
     public boolean editSalaryRuleById(int id, SalaryRule salaryRule){
-        Optional<SalaryRule> salaryRuleOptional = this.findSalaryRuleById(id);
+        Optional<SalaryRule> salaryRuleOptional = this.salaryRuleRepository.findById(id);
         if( !salaryRuleOptional.isPresent()) return false;
         SalaryRule salaryRuledb = salaryRuleOptional.get();
         salaryRuledb.setSalary(salaryRule.getSalary());
@@ -47,7 +47,7 @@ public class SalaryRuleController {
     }
 
     public boolean deleteSalaryRuleById(int id) {
-        Optional<SalaryRule> employeeOptional = this.findSalaryRuleById(id);
+        Optional<SalaryRule> employeeOptional = this.salaryRuleRepository.findById(id);
         if (!employeeOptional.isPresent()) return false;
         salaryRuleRepository.deleteById(id);
         return true;

@@ -37,7 +37,7 @@ public class SalaryRuleResource {
 
 
     @GetMapping(value = ID)
-    public ResponseEntity getSalaryRuleById(@PathVariable int id) {
+    public ResponseEntity getSalaryRuleById(@PathVariable String id) {
         Optional<SalaryRule> salaryRuleOptional = this.salaryRuleController.findSalaryRuleById(id);
         if (salaryRuleOptional.isPresent()) {
             return new ResponseEntity(salaryRuleOptional.get(), HttpStatus.OK);

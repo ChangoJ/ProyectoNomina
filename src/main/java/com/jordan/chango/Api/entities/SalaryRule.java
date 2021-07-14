@@ -1,6 +1,7 @@
 package com.jordan.chango.Api.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +14,7 @@ public class SalaryRule {
 
     private boolean decimoTercero,decimoCuarto,fondosDeReserva;
 
-    private String paymentDate;
+    private Date paymentDate;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Employee employee;
@@ -81,11 +82,11 @@ public class SalaryRule {
         this.fondosDeReserva = fondosDeReserva;
     }
 
-    public String getPaymentDate() {
+    public Date getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(String paymentDate) {
+    public void setPaymentDate(Date paymentDate) {
         this.paymentDate = paymentDate;
     }
 
