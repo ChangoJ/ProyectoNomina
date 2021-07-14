@@ -13,19 +13,19 @@ public class SalaryRule {
 
     private boolean decimoTercero,decimoCuarto,fondosDeReserva;
 
+    private String paymentDate;
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Employee employee;
 
-    public SalaryRule(int id, double salary, boolean decimoTercero, boolean decimoCuarto, boolean fondosDeReserva, Employee employee) {
+    public SalaryRule() {
         this.id = id;
         this.salary = salary;
         this.decimoTercero = decimoTercero;
         this.decimoCuarto = decimoCuarto;
         this.fondosDeReserva = fondosDeReserva;
+        this.paymentDate = paymentDate;
         this.employee = employee;
-    }
-
-    public SalaryRule() {
     }
 
     @Override
@@ -33,12 +33,12 @@ public class SalaryRule {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SalaryRule that = (SalaryRule) o;
-        return id == that.id && Double.compare(that.salary, salary) == 0 && decimoTercero == that.decimoTercero && decimoCuarto == that.decimoCuarto && fondosDeReserva == that.fondosDeReserva && Objects.equals(employee, that.employee);
+        return id == that.id && Double.compare(that.salary, salary) == 0 && decimoTercero == that.decimoTercero && decimoCuarto == that.decimoCuarto && fondosDeReserva == that.fondosDeReserva && Objects.equals(paymentDate, that.paymentDate) && Objects.equals(employee, that.employee);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, salary, decimoTercero, decimoCuarto, fondosDeReserva, employee);
+        return Objects.hash(id, salary, decimoTercero, decimoCuarto, fondosDeReserva, paymentDate, employee);
     }
 
     public int getId() {
@@ -79,6 +79,14 @@ public class SalaryRule {
 
     public void setFondosDeReserva(boolean fondosDeReserva) {
         this.fondosDeReserva = fondosDeReserva;
+    }
+
+    public String getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
     public Employee getEmployee() {

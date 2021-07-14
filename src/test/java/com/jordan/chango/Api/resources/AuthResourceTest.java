@@ -29,10 +29,10 @@ public class AuthResourceTest {
     public void Before(){
         userDto=new UserDto();
         user=new UserPayroll();
-        userDto.setEmail("email@gmail.com");
-        userDto.setPassword("1235");
-        user.setEmail("email@gmail.com");
-        user.setPassword("1235");
+        userDto.setEmail("recursoshumanos@gmail.com");
+        userDto.setPassword("12345");
+        user.setEmail("recursoshumanos@gmail.com");
+        user.setPassword("12345");
     }
 
     @Test

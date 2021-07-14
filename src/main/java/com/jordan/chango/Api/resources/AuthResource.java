@@ -35,9 +35,9 @@ public class AuthResource {
         UserDto response = this.userController.login(userDto);
         if (response.getEmail()== null) {
             return new ResponseEntity("\"El usuario no  existe\"", HttpStatus.BAD_REQUEST);
-        } /*else if (response.getPassword()==null) {
+        } else if (response.getPassword()==null) {
             return new ResponseEntity("\"Los datos ingresados son incorrectos\"", HttpStatus.BAD_REQUEST);
-        }*/ else {
+        }else {
             return new ResponseEntity(response, HttpStatus.ACCEPTED);
         }
 

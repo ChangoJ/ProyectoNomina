@@ -41,7 +41,7 @@ public class SalaryRuleController {
         salaryRuledb.setDecimoCuarto(salaryRule.isDecimoTercero());
         salaryRuledb.setDecimoCuarto(salaryRule.isDecimoCuarto());
         salaryRuledb.setFondosDeReserva(salaryRule.isFondosDeReserva());
-        salaryRuledb.setEmployee(salaryRule.getEmployee());
+        salaryRuledb.setPaymentDate(salaryRule.getPaymentDate());
         salaryRuleRepository.save(salaryRuledb);
         return true;
     }
