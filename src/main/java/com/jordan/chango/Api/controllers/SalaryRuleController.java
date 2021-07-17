@@ -24,8 +24,8 @@ public class SalaryRuleController {
         return this.salaryRuleRepository.findAll();
     }
 
-    public Optional<SalaryRule> findSalaryRuleById(String id){
-        return this.salaryRuleRepository.findSalaryRuleByEmployee_Ci(id);
+    public Optional<SalaryRule> findSalaryRuleById(String ci){
+        return this.salaryRuleRepository.findSalaryRuleByEmployee_Ci(ci);
     }
 
 
@@ -33,12 +33,12 @@ public class SalaryRuleController {
         this.salaryRuleRepository.save(salaryRule);
     }
 
-    public boolean editSalaryRuleById(int id, SalaryRule salaryRule){
-        Optional<SalaryRule> salaryRuleOptional = this.salaryRuleRepository.findById(id);
+    public boolean editSalaryRuleById(String id, SalaryRule salaryRule){
+        Optional<SalaryRule> salaryRuleOptional = this.salaryRuleRepository.findSalaryRuleByEmployee_Ci(id);
         if( !salaryRuleOptional.isPresent()) return false;
         SalaryRule salaryRuledb = salaryRuleOptional.get();
         salaryRuledb.setSalary(salaryRule.getSalary());
-        salaryRuledb.setDecimoCuarto(salaryRule.isDecimoTercero());
+        salaryRuledb.setDecimoTercero(salaryRule.isDecimoTercero());
         salaryRuledb.setDecimoCuarto(salaryRule.isDecimoCuarto());
         salaryRuledb.setFondosDeReserva(salaryRule.isFondosDeReserva());
         salaryRuledb.setPaymentDate(salaryRule.getPaymentDate());

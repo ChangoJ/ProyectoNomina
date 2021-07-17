@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -26,7 +27,9 @@ public class SalaryRuleResourceTest {
     private RestService restService;
     private SalaryRule salaryRule;
     Employee employee = new Employee();
-    Date date = new Date();
+    String pattern = "yyyy-MM-dd";
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    String date = simpleDateFormat.format(new Date());
     @Before
     public void before() {
         salaryRule = new SalaryRule();

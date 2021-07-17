@@ -14,9 +14,9 @@ public class SalaryRule {
 
     private boolean decimoTercero,decimoCuarto,fondosDeReserva;
 
-    private Date paymentDate;
+    private String paymentDate;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne( fetch = FetchType.EAGER)
     private Employee employee;
 
     public SalaryRule() {
@@ -82,11 +82,11 @@ public class SalaryRule {
         this.fondosDeReserva = fondosDeReserva;
     }
 
-    public Date getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 

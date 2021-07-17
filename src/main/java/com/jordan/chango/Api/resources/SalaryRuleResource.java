@@ -61,10 +61,10 @@ public class SalaryRuleResource {
     }
 
     @PutMapping(value = ID)
-    public ResponseEntity editSalaryRule(@RequestBody SalaryRule salaryRule, @PathVariable int id) throws EditEmployeeException {
+    public ResponseEntity editSalaryRule(@RequestBody SalaryRule salaryRule, @PathVariable String id) throws EditEmployeeException {
         try {
             if (this.salaryRuleController.editSalaryRuleById(id, salaryRule))
-                return new ResponseEntity("\"La regla salarial fue edito\"", HttpStatus.ACCEPTED);
+                return new ResponseEntity("\"La regla salarial fue editado\"", HttpStatus.ACCEPTED);
             return new ResponseEntity("\"La regla salarial no  existe\"", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             throw new EditEmployeeException("los datos enviados no son los correctos");
